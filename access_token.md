@@ -1,8 +1,27 @@
+我们使用 `OAuth2` 协议做权限验证，所以在您使用使用接口之前需要先申请 `client_id` 与 `client_secret`。 
+
+目前尚未开放申请，如需开发客户端，请联系 `nauxliu@gmail.com`
+
 ## Access Token
 
-在使用 API 需要先申请应用。
+在访问其他接口之前，你需要先获取 `access_token`，可通过两种授权方式获取。
 
-接口： `POST` : `https://api.phphub.org/oauth/access_token`
+* client_credentials
+* login_token
+
+### client_credentials
+仅需要 client_id 与 client_secret 即可获取，无需用户身份。此认证方式获得的 access_token 拥有大部分接口的读取权限。
+
+### login_token
+需要 client_id， client_secret 与用户身份来获取，获取到的 access_token 拥几乎所有接口的访问于写入权限。
+
+
+
+
+
+
+
+接口地址 `POST` : `https://api.phphub.org/oauth/access_token`
 
 ### client_credentials 认证
 
