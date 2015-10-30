@@ -1,4 +1,4 @@
-# Access Token 简介
+## Access Token 简介
 
 我们使用 `OAuth2` 协议做权限验证，所以在您使用使用接口之前需要先申请 `client_id` 与 `client_secret`。 
 
@@ -18,7 +18,6 @@
 由于 PHPHub 的用户没有密码（通过 Github 注册），所以需要通过扫描用户的登录二维码来获取用户的授权。
 
 
-
 ## client_credentials 认证
 
 接口地址 `https://api.phphub.org/v1/oauth/access_token`
@@ -31,7 +30,7 @@ __POST 参数__
 |  client\_id  | 申请 client\_id |
 | client\_secret |申请的 client\_secret | 
 
-__返回__
+__返回样例__
 
 ```json
 {
@@ -41,19 +40,27 @@ __返回__
 }
 ```
 
+__返回字段说明__
+
+| 字段 | 说明 |
+|---|---|---|
+| access_token | 成功获取到的 access_token
+| token_type  | token 类型（始终为 Bearer）
+| expires_in | token 有效期，单位为秒
+
 ## login_token 认证
 
 扫描用户的登陆二维码，解析后会获得用户名和用于登陆的 `login_token`。
 
 数据的格式为 `{username},{login_token}`
 
-`login_koken`长度为20-32 个字符，然后使用 `username` 和 `login_token` 获取 `access_token`
-
-例：
+`login_koken`长度为 20 - 32 个字符，例：
 
 ```
-summerblude,nWKEYFZ2wmSikRMjJ2Vl
+nauxliu,nWKEYFZ2wmSikRMjJ2Vl
 ```
+
+然后使用 `username` 和 `login_token` 获取 `access_token`
 
 接口地址 `https://api.phphub.org/v1/oauth/access_token`
 
@@ -77,6 +84,15 @@ __返回__
   "refresh_token": "x1txmTcWP4l81BEbmlPdeOZWETvze13rBrDOzTmG"
 }
 ```
+
+__返回字段说明__
+
+| 字段 | 说明 |
+|---|---|---|
+| access_token | 成功获取到的 access_token
+| token_type  | token 类型（始终为 Bearer）
+| expires_in | token 有效期，单位为秒
+| refresh_token | 可用来获取新的 access_token
 
 #### 刷新 access token
 
