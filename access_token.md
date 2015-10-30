@@ -13,7 +13,7 @@
 仅需要 `client_id` 与 `client_secret` 即可，无需用户身份。此认证方式获得的 `access_token` 拥有大部分接口的读取权限。
 
 #### login_token 介绍
-需要 `client_id`， `client_secret` 与用户身份来获取，获取到的 `access_token` 拥有几乎所有接口的访问于写入权限。
+需要 `client_id`， `client_secret` 与用户身份来获取，获取到的 `access_token` 拥有几乎所有接口的访问与写入权限。
 
 由于 PHPHub 的用户没有密码（通过 Github 注册），所以需要通过扫描用户的登录二维码来获取用户的授权。
 
