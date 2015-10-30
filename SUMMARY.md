@@ -1,3 +1,3 @@
-# Table of content
+# PHPHub API 文档
 
-* [First Chapter](chapter1.md)
+* [Access Token](access_token.md)
