@@ -2,23 +2,19 @@
 
 我们使用 `OAuth2` 协议做权限验证，所以在您使用使用接口之前需要先申请 `client_id` 与 `client_secret`。 
 
-目前尚未开放申请，如需开发客户端，请联系 `nauxliu@gmail.com`
+> 注: 目前尚未开放申请，如需开发客户端，请联系 `nauxliu@gmail.com` !
 
 在访问其他接口之前，你需要先获取 `access_token`，可通过两种授权方式获取。
 
 * client_credentials
 * login_token
 
-#### client_credentials 介绍
-仅需要 `client_id` 与 `client_secret` 即可，无需用户身份。此认证方式获得的 `access_token` 拥有大部分接口的读取权限。
-
-#### login_token 介绍
-需要 `client_id`， `client_secret` 与用户身份来获取，获取到的 `access_token` 拥有几乎所有接口的访问与写入权限。
-
-由于 PHPHub 的用户没有密码（通过 Github 注册），所以需要通过扫描用户的登录二维码来获取用户的授权。
+下面我们将分别介绍这两种授权方式.
 
 
 ## client_credentials 认证
+
+仅需要 `client_id` 与 `client_secret` 即可，无需用户身份。此认证方式获得的 `access_token` 拥有大部分接口的读取权限。
 
 接口地址 `https://api.phphub.org/v1/oauth/access_token`
 
@@ -50,7 +46,9 @@ __返回字段说明__
 
 ## login_token 认证
 
-扫描用户的登陆二维码，解析后会获得用户名和用于登陆的 `login_token`。
+需要 `client_id`， `client_secret` 与 `用户身份` 来获取，获取到的 `access_token` 拥有几乎所有接口的访问与写入权限。
+
+扫描用户的登陆二维码（用户个人主页），解析后会获得用于登陆的 `username` 和 `login_token`。
 
 数据的格式为 `{username},{login_token}`
 
@@ -109,3 +107,7 @@ __POST 参数__
 |  client\_id  | 申请 client\_id |
 | client\_secret | 申请的 client\_secret | 
 | refresh\_token | 上次请求返回的 refresh\_token | 
+
+
+
+
